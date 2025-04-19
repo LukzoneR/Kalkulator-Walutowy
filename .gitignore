@@ -56,3 +56,4 @@ nunit-*.xml
 .vs/KalkulatorWalutowy/FileContentIndex/37cd9230-1099-4a96-88bb-f29bf14b13ae.vsidx
 .vs/KalkulatorWalutowy/FileContentIndex/a602ca4a-9b57-422b-baf5-68e233613461.vsidx
 /.vs
+*.bin
