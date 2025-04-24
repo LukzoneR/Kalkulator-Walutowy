@@ -1,0 +1,49 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KalkulatorWalutowy"
+             xmlns:viewmodels="clr-namespace:KalkulatorWalutowy.ViewModel"
+             x:Class="KalkulatorWalutowy.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Przelicznik Walut i Kryptowalut" FontSize="24" HorizontalOptions="Center" />
+
+            <Entry Placeholder="Kwota" Keyboard="Numeric" Text="{Binding Amount}" />
+
+            <Picker Title="Z:" SelectedItem="{Binding SelectedFrom}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>PLN</x:String>
+                        <x:String>EUR</x:String>
+                        <x:String>USD</x:String>
+                        <x:String>bitcoin</x:String>
+                        <x:String>ethereum</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Na:" SelectedItem="{Binding SelectedTo}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>PLN</x:String>
+                        <x:String>EUR</x:String>
+                        <x:String>USD</x:String>
+                        <x:String>bitcoin</x:String>
+                        <x:String>ethereum</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Przelicz" Command="{Binding ConvertCommand}" />
+
+            <Label Text="Wynik:" FontSize="18" />
+            <Label Text="{Binding Result}" FontSize="22" TextColor="DarkGreen" FontAttributes="Bold" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
