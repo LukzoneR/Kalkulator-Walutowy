@@ -1,12 +1,12 @@
-﻿
+﻿using System.ComponentModel;
 namespace KalkulatorWalutowy;
 
 public partial class MainPage : ContentPage
 {
-    public MainPage()
+    public MainPage(MainViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = new MainViewModel();
+        BindingContext = viewModel;
     }
 
     private void OnTextChanged(object sender, TextChangedEventArgs e)
