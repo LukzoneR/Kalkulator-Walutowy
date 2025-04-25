@@ -1,21 +1,17 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:KalkulatorWalutowy"
-             xmlns:viewmodels="clr-namespace:KalkulatorWalutowy.ViewModel"
+             xmlns:view="clr-namespace:KalkulatorWalutowy.View"
              x:Class="KalkulatorWalutowy.MainPage">
-
-    <ContentPage.BindingContext>
-        <viewmodels:MainViewModel />
-    </ContentPage.BindingContext>
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="Przelicznik Walut i Kryptowalut" FontSize="24" HorizontalOptions="Center" />
+            <Label Text="Currency Converter" FontSize="24" HorizontalOptions="Center" />
 
-            <Entry Placeholder="Kwota" Keyboard="Numeric" Text="{Binding Amount}" />
+            <Entry Placeholder="Amount" Keyboard="Numeric" TextChanged="OnTextChanged" Text="{Binding Amount}" Margin="20,0,20,0"/>
 
-            <Picker Title="Z:" SelectedItem="{Binding SelectedFrom}">
+            <Picker Title="From:" x:Name="picker1" SelectedItem="{Binding SelectedFrom}" Margin="20,0,20,0">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>PLN</x:String>
@@ -27,7 +23,19 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <Picker Title="Na:" SelectedItem="{Binding SelectedTo}">
+            <Button
+                Text="⇅"
+                WidthRequest="40"
+                HeightRequest="40"
+                CornerRadius="40"
+                BackgroundColor="DodgerBlue"
+                TextColor="White"
+                FontSize="20"
+                Padding="0" 
+                Clicked="OnExchangeButtonClicked"/>
+
+
+            <Picker Title="To:" x:Name="picker2" SelectedItem="{Binding SelectedTo}" Margin="20,0,20,40">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>PLN</x:String>
@@ -39,9 +47,9 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <Button Text="Przelicz" Command="{Binding ConvertCommand}" />
+            <Button Text="Enter" Command="{Binding ConvertCommand}" BackgroundColor="DodgerBlue" WidthRequest="80" TextColor="White"/>
 
-            <Label Text="Wynik:" FontSize="18" />
+            <Label Text="Result:" FontSize="18" />
             <Label Text="{Binding Result}" FontSize="22" TextColor="DarkGreen" FontAttributes="Bold" />
 
         </VerticalStackLayout>

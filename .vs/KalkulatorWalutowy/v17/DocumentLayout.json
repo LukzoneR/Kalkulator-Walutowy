@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\",
+  "WorkspaceRootPath": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\services\\exchangerateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\services\\exchangerateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\view\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|c:\\users\\marcin\\documents\\github\\kalkulator-walutowy\\kalkulatorwalutowy\\view\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\view\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\model\\currencyrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\model\\currencyrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\model\\cryptoprice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\model\\cryptoprice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|c:\\users\\marcin\\documents\\github\\kalkulator-walutowy\\kalkulatorwalutowy\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|d:\\kalkulatorwalutowy\\kalkulator-walutowy\\kalkulatorwalutowy\\model\\exchangerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\model\\exchangerate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|c:\\users\\marcin\\documents\\github\\kalkulator-walutowy\\kalkulatorwalutowy\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56CE5AA6-818B-4248-A236-557CB7666DF5}|KalkulatorWalutowy\\KalkulatorWalutowy.csproj|solutionrelative:kalkulatorwalutowy\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,26 +26,26 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainViewModel.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
               "RelativeDocumentMoniker": "KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
               "RelativeToolTip": "KalkulatorWalutowy\\ViewModel\\MainViewModel.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAmwEkAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T17:29:29.665Z",
+              "WhenOpened": "2025-04-25T09:44:28.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "MainPage.xaml",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml",
               "RelativeDocumentMoniker": "KalkulatorWalutowy\\View\\MainPage.xaml",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml",
               "RelativeToolTip": "KalkulatorWalutowy\\View\\MainPage.xaml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAMzMzMzMbwC0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-04-24T17:29:17.225Z",
               "EditorCaption": ""
@@ -69,66 +53,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ExchangeRateService.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Services\\ExchangeRateService.cs",
-              "RelativeDocumentMoniker": "KalkulatorWalutowy\\Services\\ExchangeRateService.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Services\\ExchangeRateService.cs",
-              "RelativeToolTip": "KalkulatorWalutowy\\Services\\ExchangeRateService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T17:28:14.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "KalkulatorWalutowy\\View\\MainPage.xaml.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\marcin\\Documents\\GitHub\\Kalkulator-Walutowy\\KalkulatorWalutowy\\View\\MainPage.xaml.cs",
               "RelativeToolTip": "KalkulatorWalutowy\\View\\MainPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T17:35:17.482Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ExchangeRate.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\ExchangeRate.cs",
-              "RelativeDocumentMoniker": "KalkulatorWalutowy\\Model\\ExchangeRate.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\ExchangeRate.cs",
-              "RelativeToolTip": "KalkulatorWalutowy\\Model\\ExchangeRate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T17:28:03.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CurrencyRate.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\CurrencyRate.cs",
-              "RelativeDocumentMoniker": "KalkulatorWalutowy\\Model\\CurrencyRate.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\CurrencyRate.cs",
-              "RelativeToolTip": "KalkulatorWalutowy\\Model\\CurrencyRate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T17:27:55.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CryptoPrice.cs",
-              "DocumentMoniker": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\CryptoPrice.cs",
-              "RelativeDocumentMoniker": "KalkulatorWalutowy\\Model\\CryptoPrice.cs",
-              "ToolTip": "D:\\KalkulatorWalutowy\\Kalkulator-Walutowy\\KalkulatorWalutowy\\Model\\CryptoPrice.cs",
-              "RelativeToolTip": "KalkulatorWalutowy\\Model\\CryptoPrice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T17:27:44.887Z",
               "EditorCaption": ""
             }
           ]
