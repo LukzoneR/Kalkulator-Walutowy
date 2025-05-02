@@ -1,65 +1,101 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel;
 using System.Windows.Input;
-using System.Globalization;
+using KalkulatorWalutowy.Services;
 
 namespace KalkulatorWalutowy;
 
 public class MainViewModel : INotifyPropertyChanged
 {
-
-    private decimal _amount;
-    private string _result = "0";
-
-    public ObservableCollection<string> Waluty { get; set; } = new()
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private readonly ExchangeRateService exchangeRateService = new ExchangeRateService();
+    private string amount = "1";
+    public string Amount
     {
-        "PLN", "EUR", "USD", "bitcoin", "ethereum"
-    };
-
-    public decimal Amount
-    {
-        get => _amount;
+        get => amount;
         set
         {
-            _amount = value;
-            OnPropertyChanged();
+            if (amount != value)
+            {
+                amount = value;
+                OnPropertyChanged(nameof(Amount));
+            }
         }
     }
 
+    private string selectedFrom;
+    public string SelectedFrom
+    {
+        get => selectedFrom;
+        set
+        {
+            if (selectedFrom != value)
+            {
+                selectedFrom = value;
+                OnPropertyChanged(nameof(SelectedFrom));
+            }
+        }
+    }
+
+    private string selectedTo;
+    public string SelectedTo
+    {
+        get => selectedTo;
+        set
+        {
+            if (selectedTo != value)
+            {
+                selectedTo = value;
+                OnPropertyChanged(nameof(SelectedTo));
+            }
+        }
+    }
+
+    private string result;
     public string Result
     {
-        get => _result;
+        get => result;
         set
         {
-            _result = value;
-            OnPropertyChanged();
+            if (result != value)
+            {
+                result = value;
+                OnPropertyChanged(nameof(Result));
+            }
         }
     }
 
-    private string? _selectedFrom;
-    public string? SelectedFrom
+    public ICommand ConvertCommand { get; }
+
+    public MainViewModel()
     {
-        get => _selectedFrom;
-        set
-        {
-            _selectedFrom = value;
-            OnPropertyChanged();
-        }
+        SelectedFrom = "PLN";
+        SelectedTo = "EUR";
+
+        ConvertCommand = new Command(async () => await ConvertAsync());
     }
 
-    private string? _selectedTo;
-    public string? SelectedTo
+    private async Task ConvertAsync()
     {
-        get => _selectedTo;
-        set
+        if (double.TryParse(Amount, out double amountValue))
         {
-            _selectedTo = value;
-            OnPropertyChanged();
+            try
+            {
+                double rateFrom = await exchangeRateService.GetExchangeRateAsync(SelectedFrom);
+                double rateTo = await exchangeRateService.GetExchangeRateAsync(SelectedTo);
+                double resultValue = amountValue * (rateTo / rateFrom);
+                Result = $"{resultValue:F4} {SelectedTo}";
+            }
+            catch (Exception ex)
+            {
+                Result = $"Błąd: {ex.Message}";
+            }
+        }
+        else
+        {
+            Result = "Nieprawidłowa kwota.";
         }
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string name = "") =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    private void OnPropertyChanged(string propertyName) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }

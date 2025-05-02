@@ -16,8 +16,6 @@
                         <x:String>PLN</x:String>
                         <x:String>EUR</x:String>
                         <x:String>USD</x:String>
-                        <x:String>bitcoin</x:String>
-                        <x:String>ethereum</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
@@ -40,8 +38,6 @@
                         <x:String>PLN</x:String>
                         <x:String>EUR</x:String>
                         <x:String>USD</x:String>
-                        <x:String>bitcoin</x:String>
-                        <x:String>ethereum</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
