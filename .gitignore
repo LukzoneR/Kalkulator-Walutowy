@@ -59,3 +59,5 @@ nunit-*.xml
 *.bin
 .vs/KalkulatorWalutowy/FileContentIndex/30fc9036-9341-4ca4-be8e-ce698b27418c.vsidx
 /.vs/KalkulatorWalutowy/FileContentIndex
+/.vs/KalkulatorWalutowy/DesignTimeBuild
+/.vs/ProjectEvaluation
