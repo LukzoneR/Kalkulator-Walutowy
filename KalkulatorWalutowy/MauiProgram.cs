@@ -1,5 +1,4 @@
-﻿using KalkulatorWalutowy.Interfaces;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace KalkulatorWalutowy;
 
@@ -21,7 +20,6 @@ public static class MauiProgram
 #endif
 
         // Register services
-        builder.Services.AddSingleton<ICurrencyService, CurrencyService>();
         builder.Services.AddSingleton<MainViewModel>();
         builder.Services.AddSingleton<MainPage>();
 
