@@ -10,15 +10,7 @@
 
             <Entry Placeholder="Amount" Keyboard="Numeric" TextChanged="OnTextChanged" Text="{Binding Amount}" Margin="20,0,20,0"/>
 
-            <Picker Title="From:" x:Name="picker1" SelectedItem="{Binding SelectedFrom}" Margin="20,0,20,0">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>PLN</x:String>
-                        <x:String>EUR</x:String>
-                        <x:String>USD</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Picker Title="From:" x:Name="picker1" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding SelectedFrom}" Margin="20,0,20,0"/>
 
             <Button
                 Text="⇅"
@@ -32,20 +24,12 @@
                 Clicked="OnExchangeButtonClicked"/>
 
 
-            <Picker Title="To:" x:Name="picker2" SelectedItem="{Binding SelectedTo}" Margin="20,0,20,40">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>PLN</x:String>
-                        <x:String>EUR</x:String>
-                        <x:String>USD</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Picker Title="To:" x:Name="picker2" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding SelectedTo}" Margin="20,0,20,0"/>
 
             <Button Text="Enter" Command="{Binding ConvertCommand}" BackgroundColor="DodgerBlue" WidthRequest="80" TextColor="White"/>
 
-            <Label Text="Result:" FontSize="18" />
-            <Label Text="{Binding Result}" FontSize="22" TextColor="DarkGreen" FontAttributes="Bold" />
+            <Label Text="Result:" FontSize="18" Margin="20,0,20,0"/>
+            <Label Text="{Binding Result}" FontSize="22" TextColor="DarkGreen" FontAttributes="Bold" Margin="20,0,20,0"/>
 
         </VerticalStackLayout>
     </ScrollView>

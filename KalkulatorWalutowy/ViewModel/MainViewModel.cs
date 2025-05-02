@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using KalkulatorWalutowy.Services;
 
@@ -8,6 +9,7 @@ public class MainViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     private readonly ExchangeRateService exchangeRateService = new ExchangeRateService();
+
     private string amount = "1";
     public string Amount
     {
@@ -65,13 +67,12 @@ public class MainViewModel : INotifyPropertyChanged
     }
 
     public ICommand ConvertCommand { get; }
+    public ObservableCollection<string> CurrencyList { get; set; } = new();
 
     public MainViewModel()
     {
-        SelectedFrom = "PLN";
-        SelectedTo = "EUR";
-
         ConvertCommand = new Command(async () => await ConvertAsync());
+        _ = LoadCurrenciesAsync();
     }
 
     private async Task ConvertAsync()
@@ -93,6 +94,26 @@ public class MainViewModel : INotifyPropertyChanged
         else
         {
             Result = "Nieprawidłowa kwota.";
+        }
+    }
+
+    private async Task LoadCurrenciesAsync()
+    {
+        try
+        {
+            var currencies = await exchangeRateService.GetAvailableCurrenciesAsync();
+            CurrencyList.Clear();
+            foreach (var currency in currencies)
+            {
+                CurrencyList.Add(currency);
+            }
+
+            SelectedFrom ??= "PLN";
+            SelectedTo ??= "EUR";
+        }
+        catch (Exception ex)
+        {
+            Result = $"Błąd ładowania walut: {ex.Message}";
         }
     }
 

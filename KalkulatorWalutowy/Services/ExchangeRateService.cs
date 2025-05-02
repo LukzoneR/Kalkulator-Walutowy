@@ -28,4 +28,28 @@ public class ExchangeRateService
             throw new Exception($"Błąd podczas pobierania kursu dla {currencyCode}: {response.StatusCode}");
         }
     }
+
+    public async Task<List<string>> GetAvailableCurrenciesAsync()
+    {
+        string url = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
+
+        var response = await client.GetAsync(url);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            var tables = JsonSerializer.Deserialize<List<ExchangeRateResponse>>(json);
+            var currencies = tables?.FirstOrDefault()?.rates?.Select(rate => rate.code).ToList() ?? new List<string>();
+
+            // Dodaj PLN jako bazową
+            if (!currencies.Contains("PLN"))
+                currencies.Insert(0, "PLN");
+
+            return currencies;
+        }
+        else
+        {
+            throw new Exception("Nie udało się pobrać listy walut.");
+        }
+    }
 }
