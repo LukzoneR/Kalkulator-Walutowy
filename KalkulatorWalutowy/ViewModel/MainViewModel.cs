@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using KalkulatorWalutowy.Services;
+using KalkulatorWalutowy.ViewModel;
 
 namespace KalkulatorWalutowy;
 
@@ -10,90 +11,62 @@ public class MainViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     private readonly ExchangeRateService exchangeRateService = new ExchangeRateService();
 
-    private string amount = "1";
-    public string Amount
-    {
-        get => amount;
-        set
-        {
-            if (amount != value)
-            {
-                amount = value;
-                OnPropertyChanged(nameof(Amount));
-            }
-        }
-    }
-
-    private string selectedFrom;
-    public string SelectedFrom
-    {
-        get => selectedFrom;
-        set
-        {
-            if (selectedFrom != value)
-            {
-                selectedFrom = value;
-                OnPropertyChanged(nameof(SelectedFrom));
-            }
-        }
-    }
-
-    private string selectedTo;
-    public string SelectedTo
-    {
-        get => selectedTo;
-        set
-        {
-            if (selectedTo != value)
-            {
-                selectedTo = value;
-                OnPropertyChanged(nameof(SelectedTo));
-            }
-        }
-    }
-
-    private string result;
-    public string Result
-    {
-        get => result;
-        set
-        {
-            if (result != value)
-            {
-                result = value;
-                OnPropertyChanged(nameof(Result));
-            }
-        }
-    }
+    public CurrencyConversionData CurrencyData { get; set; } = new();
+    public CurrencyConversionData CryptoData { get; set; } = new();
 
     public ICommand ConvertCommand { get; }
+    public ICommand CryptoConvertCommand { get; }
+
     public ObservableCollection<string> CurrencyList { get; set; } = new();
 
     public MainViewModel()
     {
         ConvertCommand = new Command(async () => await ConvertAsync());
+        CryptoConvertCommand = new Command(async () => await CryptoConvertAsync());
         _ = LoadCurrenciesAsync();
     }
 
     private async Task ConvertAsync()
     {
-        if (double.TryParse(Amount, out double amountValue))
+        if (double.TryParse(CurrencyData.Amount, out double amountValue))
         {
             try
             {
-                double rateFrom = await exchangeRateService.GetExchangeRateAsync(SelectedFrom);
-                double rateTo = await exchangeRateService.GetExchangeRateAsync(SelectedTo);
-                double resultValue = amountValue * (rateTo / rateFrom);
-                Result = $"{resultValue:F4} {SelectedTo}";
+                double rateFrom = await exchangeRateService.GetExchangeRateAsync(CurrencyData.SelectedFrom);
+                double rateTo = await exchangeRateService.GetExchangeRateAsync(CurrencyData.SelectedTo);
+                double resultValue = amountValue * (rateFrom / rateTo);
+                CurrencyData.Result = $"{resultValue:F4} {CurrencyData.SelectedTo}";
             }
             catch (Exception ex)
             {
-                Result = $"Błąd: {ex.Message}";
+                CurrencyData.Result = $"Błąd: {ex.Message}";
             }
         }
         else
         {
-            Result = "Nieprawidłowa kwota.";
+            CurrencyData.Result = "Nieprawidłowa kwota.";
+        }
+    }
+
+    private async Task CryptoConvertAsync()
+    {
+        if (double.TryParse(CryptoData.Amount, out double amountValue))
+        {
+            try
+            {
+                double rateFrom = await exchangeRateService.GetExchangeRateAsync(CryptoData.SelectedFrom);
+                double rateTo = await exchangeRateService.GetExchangeRateAsync(CryptoData.SelectedTo);
+                double resultValue = amountValue * (rateFrom / rateTo);
+                CryptoData.Result = $"{resultValue:F6} {CryptoData.SelectedTo}";
+            }
+            catch (Exception ex)
+            {
+                CryptoData.Result = $"Błąd: {ex.Message}";
+            }
+        }
+        else
+        {
+            CryptoData.Result = "Nieprawidłowa kwota.";
         }
     }
 
@@ -108,15 +81,14 @@ public class MainViewModel : INotifyPropertyChanged
                 CurrencyList.Add(currency);
             }
 
-            SelectedFrom ??= "PLN";
-            SelectedTo ??= "EUR";
+            CurrencyData.SelectedFrom ??= "PLN";
+            CurrencyData.SelectedTo ??= "EUR";
+            CryptoData.SelectedFrom ??= "PLN";
+            CryptoData.SelectedTo ??= "EUR";
         }
         catch (Exception ex)
         {
-            Result = $"Błąd ładowania walut: {ex.Message}";
+            CurrencyData.Result = $"Błąd ładowania walut: {ex.Message}";
         }
     }
-
-    private void OnPropertyChanged(string propertyName) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }

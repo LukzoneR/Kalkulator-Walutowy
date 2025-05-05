@@ -41,7 +41,6 @@ public class ExchangeRateService
             var tables = JsonSerializer.Deserialize<List<ExchangeRateResponse>>(json);
             var currencies = tables?.FirstOrDefault()?.rates?.Select(rate => rate.code).ToList() ?? new List<string>();
 
-            // Dodaj PLN jako bazową
             if (!currencies.Contains("PLN"))
                 currencies.Insert(0, "PLN");
 
