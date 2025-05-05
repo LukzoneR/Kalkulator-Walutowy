@@ -3,13 +3,16 @@ using System.ComponentModel;
 using System.Windows.Input;
 using KalkulatorWalutowy.Services;
 using KalkulatorWalutowy.ViewModel;
+using System.Runtime.CompilerServices;
 
 namespace KalkulatorWalutowy;
 
 public class MainViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
-    private readonly ExchangeRateService exchangeRateService = new ExchangeRateService();
+
+    private readonly ExchangeRateService exchangeRateService = new();
+    private readonly CryptoExchangeRateService cryptoExchangeRateService = new();
 
     public CurrencyConversionData CurrencyData { get; set; } = new();
     public CurrencyConversionData CryptoData { get; set; } = new();
@@ -18,12 +21,15 @@ public class MainViewModel : INotifyPropertyChanged
     public ICommand CryptoConvertCommand { get; }
 
     public ObservableCollection<string> CurrencyList { get; set; } = new();
+    public ObservableCollection<string> CryptoList { get; set; } = new();
 
     public MainViewModel()
     {
         ConvertCommand = new Command(async () => await ConvertAsync());
         CryptoConvertCommand = new Command(async () => await CryptoConvertAsync());
+
         _ = LoadCurrenciesAsync();
+        _ = LoadCryptosAsync();
     }
 
     private async Task ConvertAsync()
@@ -39,12 +45,12 @@ public class MainViewModel : INotifyPropertyChanged
             }
             catch (Exception ex)
             {
-                CurrencyData.Result = $"Błąd: {ex.Message}";
+                CurrencyData.Result = $"Error: {ex.Message}";
             }
         }
         else
         {
-            CurrencyData.Result = "Nieprawidłowa kwota.";
+            CurrencyData.Result = "Wrong amount";
         }
     }
 
@@ -54,19 +60,18 @@ public class MainViewModel : INotifyPropertyChanged
         {
             try
             {
-                double rateFrom = await exchangeRateService.GetExchangeRateAsync(CryptoData.SelectedFrom);
-                double rateTo = await exchangeRateService.GetExchangeRateAsync(CryptoData.SelectedTo);
-                double resultValue = amountValue * (rateFrom / rateTo);
-                CryptoData.Result = $"{resultValue:F6} {CryptoData.SelectedTo}";
+                double cryptoToFiat = await cryptoExchangeRateService.GetCryptoPriceInFiatAsync(CryptoData.SelectedFrom, CryptoData.SelectedTo);
+                double resultValue = amountValue * cryptoToFiat;
+                CryptoData.Result = $"{resultValue:F2} {CryptoData.SelectedTo}";
             }
             catch (Exception ex)
             {
-                CryptoData.Result = $"Błąd: {ex.Message}";
+                CryptoData.Result = $"Error: {ex.Message}";
             }
         }
         else
         {
-            CryptoData.Result = "Nieprawidłowa kwota.";
+            CryptoData.Result = "Wrong amount.";
         }
     }
 
@@ -83,12 +88,38 @@ public class MainViewModel : INotifyPropertyChanged
 
             CurrencyData.SelectedFrom ??= "PLN";
             CurrencyData.SelectedTo ??= "EUR";
-            CryptoData.SelectedFrom ??= "PLN";
-            CryptoData.SelectedTo ??= "EUR";
+
+            CryptoData.SelectedTo ??= "PLN"; 
         }
         catch (Exception ex)
         {
-            CurrencyData.Result = $"Błąd ładowania walut: {ex.Message}";
+            CurrencyData.Result = $"Error currencies loading: {ex.Message}";
         }
+    }
+
+
+    private async Task LoadCryptosAsync()
+    {
+        try
+        {
+            var cryptos = await cryptoExchangeRateService.GetAvailableCryptos();
+            CryptoList.Clear();
+            foreach (var crypto in cryptos)
+            {
+                CryptoList.Add(crypto);
+            }
+
+            CryptoData.SelectedFrom ??= "BTC";
+        }
+        catch (Exception ex)
+        {
+            CryptoData.Result = $"Error currencies loading: {ex.Message}";
+        }
+    }
+
+
+    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

@@ -21,11 +21,11 @@ public class ExchangeRateService
             var json = await response.Content.ReadAsStringAsync();
             var data = JsonSerializer.Deserialize<ExchangeRateResponse>(json);
             return data?.rates?.FirstOrDefault()?.mid
-                   ?? throw new Exception("Brak danych kursowych.");
+                   ?? throw new Exception("No rate data");
         }
         else
         {
-            throw new Exception($"Błąd podczas pobierania kursu dla {currencyCode}: {response.StatusCode}");
+            throw new Exception($"Error while downloading data from {currencyCode}: {response.StatusCode}");
         }
     }
 
@@ -48,7 +48,9 @@ public class ExchangeRateService
         }
         else
         {
-            throw new Exception("Nie udało się pobrać listy walut.");
+            throw new Exception("Couldn't generate currencies list");
         }
     }
+
+
 }

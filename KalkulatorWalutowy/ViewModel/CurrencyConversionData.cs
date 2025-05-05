@@ -20,7 +20,7 @@ public class CurrencyConversionData : INotifyPropertyChanged
         }
     }
 
-    private string selectedFrom;
+    private string selectedFrom = string.Empty;
     public string SelectedFrom
     {
         get => selectedFrom;
@@ -34,7 +34,7 @@ public class CurrencyConversionData : INotifyPropertyChanged
         }
     }
 
-    private string selectedTo;
+    private string selectedTo = string.Empty;
     public string SelectedTo
     {
         get => selectedTo;
@@ -48,7 +48,7 @@ public class CurrencyConversionData : INotifyPropertyChanged
         }
     }
 
-    private string result;
+    private string result = string.Empty;
     public string Result
     {
         get => result;
