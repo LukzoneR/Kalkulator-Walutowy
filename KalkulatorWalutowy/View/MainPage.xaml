@@ -6,79 +6,110 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="Currency Converter" FontSize="24" HorizontalOptions="Center" />
-
-            <Entry Placeholder="Amount" Keyboard="Numeric" TextChanged="OnTextChanged" Text="{Binding CurrencyData.Amount}" Margin="20,0,20,0"/>
-
-            <Picker Title="From:" x:Name="picker1" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CurrencyData.SelectedFrom}" Margin="20,0,20,0"/>
-
-            <Button
-            Text="⇅"
-            WidthRequest="40"
-            HeightRequest="40"
-            CornerRadius="40"
-            BackgroundColor="#992392FF"
-            TextColor="White"
-            FontSize="20"
-            Padding="0" 
-            Clicked="OnExchangeButtonClicked"
-            />
-
-
-            <Picker Title="To:" x:Name="picker2" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CurrencyData.SelectedTo}" Margin="20,0,20,0"/>
-
-            <Button Text="Enter" Command="{Binding ConvertCommand}" BackgroundColor="DodgerBlue" WidthRequest="80" TextColor="White"/>
-
-            <Label Text="Result:" FontSize="18" Margin="20,0,20,0"/>
             <Border
-                Margin="20,0,20,70"
-                Padding="10"
-                BackgroundColor="#DAE3DB"
->
+                BackgroundColor="#323131"
+                Stroke="#B0B0B0"
+                StrokeThickness="1"
+                Padding="20"
+                Margin="0,0,0,10">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="12"/>
                 </Border.StrokeShape>
+                
+                <VerticalStackLayout Spacing="15">
+                    
+                    <Label Text="Currency Converter" FontSize="24" HorizontalOptions="Center" FontFamily="regular"/>
 
-                <Label
-                    Text="{Binding CurrencyData.Result}"
-                    FontSize="22"
-                    TextColor="DarkGreen"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    <Entry Placeholder="Amount" Keyboard="Numeric" FontFamily="regular" TextChanged="OnTextChanged" Text="{Binding CurrencyData.Amount}" Margin="20,0,20,0"/>
+
+                    <Picker Title="From:" x:Name="picker1" FontFamily="regular" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CurrencyData.SelectedFrom}" Margin="20,0,20,0"/>
+
+                    <Button
+                        Text="⇅"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="40"
+                        BackgroundColor="#4E8F35"
+                        TextColor="White"
+                        FontSize="20"
+                        Padding="0" 
+                        Clicked="OnExchangeButtonClicked"
+                        BorderColor="#DAE3DB"
+                        BorderWidth="1"
+                        />
+
+
+                    <Picker Title="To:" x:Name="picker2" FontFamily="regular" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CurrencyData.SelectedTo}" Margin="20,0,20,0"/>
+
+                    <Button Text="Enter" Command="{Binding ConvertCommand}" FontFamily="regular" BackgroundColor="#4E8F35" BorderWidth="1" BorderColor="#DAE3DB" WidthRequest="80" TextColor="White"/>
+
+                    <Label Text="Result:" FontSize="18" Margin="20,0,20,0" FontFamily="regular"/>
+                    <Border
+                        Margin="20,0,20,70"
+                        Padding="10"
+                        BackgroundColor="#DAE3DB"
+>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+
+                        <Label
+                            Text="{Binding CurrencyData.Result}"
+                            FontSize="22"
+                            TextColor="DarkGreen"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontFamily="regular"/>
+                    </Border>
+                </VerticalStackLayout>
             </Border>
 
 
             <!--CryptoCurrency Converter-->
-            <Label Text="CryptoCurrency Converter" FontSize="24" HorizontalOptions="Center"/>
 
-            <Entry Placeholder="Amount" Keyboard="Numeric" TextChanged="OnTextChanged" Text="{Binding CryptoData.Amount}" Margin="20,0,20,0"/>
-
-            <Picker Title="From:" x:Name="CryptoPicker1" ItemsSource="{Binding CryptoList}" SelectedItem="{Binding CryptoData.SelectedFrom}" Margin="20,0,20,0"/>
-
-            <Picker Title="To:" x:Name="CryptoPicker2" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CryptoData.SelectedTo}" Margin="20,0,20,0"/>
-
-            <Button Text="Enter" Command="{Binding CryptoConvertCommand}" BackgroundColor="DodgerBlue" WidthRequest="80" TextColor="White"/>
-
-            <Label Text="Result:" FontSize="18" Margin="20,0,20,0"/>
             <Border
-                Margin="20,0,20,70"
-                Padding="10"
-                BackgroundColor="#DAE3DB"
->
+                BackgroundColor="#323131"
+                Stroke="#B0B0B0"
+                StrokeThickness="1"
+                Padding="20"
+                Margin="0,0,0,10">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="12"/>
                 </Border.StrokeShape>
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="CryptoCurrency Converter" FontSize="24" HorizontalOptions="Center" FontFamily="regular"/>
 
-                <Label
-                    Text="{Binding CryptoData.Result}"
-                    FontSize="22"
-                    TextColor="DarkGreen"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    <Entry Placeholder="Amount" Keyboard="Numeric" FontFamily="regular" TextChanged="OnTextChanged" Text="{Binding CryptoData.Amount}" Margin="20,0,20,0"/>
+
+                    <Picker Title="From:" x:Name="CryptoPicker1" FontFamily="regular" ItemsSource="{Binding CryptoList}" SelectedItem="{Binding CryptoData.SelectedFrom}" Margin="20,0,20,0"/>
+
+                    <Picker Title="To:" x:Name="CryptoPicker2" FontFamily="regular" ItemsSource="{Binding CurrencyList}" SelectedItem="{Binding CryptoData.SelectedTo}" Margin="20,0,20,0"/>
+
+                    <Button Text="Enter" Command="{Binding CryptoConvertCommand}" FontFamily="regular" BackgroundColor="#4E8F35" BorderWidth="1" BorderColor="#DAE3DB" WidthRequest="80" TextColor="White"/>
+
+                    <Label Text="Result:" FontSize="18" Margin="20,0,20,0" FontFamily="regular"/>
+                    <Border
+                        Margin="20,0,20,70"
+                        Padding="10"
+                        BackgroundColor="#DAE3DB"
+>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+
+                        <Label
+                            Text="{Binding CryptoData.Result}"
+                            FontSize="22"
+                            TextColor="DarkGreen"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontFamily="regular"/>
+                    </Border>
+                </VerticalStackLayout>
             </Border>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
