@@ -2,9 +2,9 @@
 
 public class CryptoRate
 {
-    public string id { get; set; } = string.Empty;
-    public string name { get; set; } = string.Empty;
-    public string symbol { get; set; } = string.Empty;
-    public string type { get; set; } = string.Empty;
-    public bool is_active { get; set; }
+    public string Id { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string Symbol { get; set; } = string.Empty;
+    public string Type { get; set; } = string.Empty;
+    public bool Is_Active { get; set; }
 }

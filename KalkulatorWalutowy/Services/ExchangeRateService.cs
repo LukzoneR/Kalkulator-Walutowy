@@ -1,11 +1,19 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using KalkulatorWalutowy.Model;
 
 namespace KalkulatorWalutowy.Services;
 
 public class ExchangeRateService
 {
-    private static readonly HttpClient client = new HttpClient();
+    private static readonly HttpClient client = new();
+
+    private readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        PropertyNameCaseInsensitive = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        WriteIndented = true
+    };
 
     public async Task<double> GetExchangeRateAsync(string currencyCode)
     {
@@ -19,8 +27,9 @@ public class ExchangeRateService
         if (response.IsSuccessStatusCode)
         {
             var json = await response.Content.ReadAsStringAsync();
-            var data = JsonSerializer.Deserialize<ExchangeRateResponse>(json);
-            return data?.rates?.FirstOrDefault()?.mid
+            var data = JsonSerializer.Deserialize<ExchangeRateResponse>(json, _jsonOptions);
+
+            return data?.Rates?.FirstOrDefault()?.Mid
                    ?? throw new Exception("No rate data");
         }
         else
@@ -38,8 +47,10 @@ public class ExchangeRateService
         if (response.IsSuccessStatusCode)
         {
             var json = await response.Content.ReadAsStringAsync();
-            var tables = JsonSerializer.Deserialize<List<ExchangeRateResponse>>(json);
-            var currencies = tables?.FirstOrDefault()?.rates?.Select(rate => rate.code).ToList() ?? new List<string>();
+            var tables = JsonSerializer.Deserialize<List<ExchangeRateResponse>>(json, _jsonOptions);
+
+            var currencies = tables?.FirstOrDefault()?.Rates?.Select(rate => rate.Code).ToList()
+                            ?? new List<string>();
 
             if (!currencies.Contains("PLN"))
                 currencies.Insert(0, "PLN");
@@ -51,6 +62,4 @@ public class ExchangeRateService
             throw new Exception("Couldn't generate currencies list");
         }
     }
-
-
 }

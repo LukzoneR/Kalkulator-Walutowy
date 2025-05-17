@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using KalkulatorWalutowy.Model;
 
 namespace KalkulatorWalutowy.Services;
@@ -6,6 +7,13 @@ namespace KalkulatorWalutowy.Services;
 public class CryptoExchangeRateService
 {
     private readonly HttpClient _client = new();
+
+    private readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        PropertyNameCaseInsensitive = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        WriteIndented = true
+    };
 
     private readonly Dictionary<string, string> cryptoIds = new()
     {
@@ -31,11 +39,12 @@ public class CryptoExchangeRateService
         if (response.IsSuccessStatusCode)
         {
             var json = await response.Content.ReadAsStringAsync();
-            var coins = JsonSerializer.Deserialize<List<CryptoRate>>(json);
+
+            var coins = JsonSerializer.Deserialize<List<CryptoRate>>(json, _jsonOptions);
 
             return coins
-                .Where(c => c.type == "coin" && c.is_active && cryptoIds.ContainsKey(c.symbol))
-                .Select(c => c.symbol)
+                .Where(c => c.Type == "coin" && c.Is_Active && cryptoIds.ContainsKey(c.Symbol))
+                .Select(c => c.Symbol)
                 .ToList();
         }
 
